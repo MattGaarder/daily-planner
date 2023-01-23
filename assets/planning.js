@@ -13,13 +13,18 @@
 
 
 // I will use moment() to dynamically change the classes of the timeblocks 
-// by comparing them to moment() I will get them to be color coded 
+// by comparing them to the hour value of moment() I will get them to be color coded 
+// by applying a class of past, present, future depending on whether moment() is greater than
+// or less than the start/end data-value of the block 
+
+
+// How to format time using moment and assign that to a variable.
 
 var currentTime = moment().format("ddd D MMM YYYY");
 $("#currentDay").text(currentTime);
 
 function updateTimeBlocks() {
-    var currentTime = moment().format("H:mm"); // format the current time as hours and minutes
+    var currentTime = moment().format("H"); // format the current time as hours
     $(".time-block").each(function() {
         var startTime = $(this).data("start"); // get the start time of the time block
         var endTime = $(this).data("end"); // get the end time of the time block
@@ -33,7 +38,7 @@ function updateTimeBlocks() {
     });
 }
 
-setInterval(updateTimeBlocks, 1000); // update time blocks every second
+setInterval(updateTimeBlocks, 1000); // update time blocks every second by running the function
 
 
 // Solution code for moment.js exercise:

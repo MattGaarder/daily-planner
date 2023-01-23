@@ -11,7 +11,7 @@ textarea {
   color: #000000;
   border-left: 1px solid black;
   padding: 10px;
-  width: 60vw;
+  width: 75vw;
 }
 
 .jumbotron {
@@ -64,7 +64,7 @@ textarea {
   background-color: #ff6961;
 }
 
-#boob {
+#block {
   background-color: blue; 
 }
 
