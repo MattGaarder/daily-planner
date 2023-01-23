@@ -1,12 +1,7 @@
-// $(document).ready(function () {
-// var currentTime = moment().format("HH:mm:ss");
-// $("#currentDay").text(currentTime);
-// });
-
 // var weekDay = moment("1.1.2022", "D.M.YYYY").format("ddd D MMM YYYY");
 // $("#currentDay").text(weekDay);
 
-var currentDay= moment().format("ddd D MMM YYYY");
+var currentDay = moment().format("ddd D MMM YYYY");
 $("#currentDay").text(currentDay);
 
 
@@ -18,8 +13,8 @@ console.log(block.dataset);
 
 function updateTimeBlocks() {
     // standard JavasScript notation would be:
-    // // var block = document.querySelector(".block");
-    // .forEach (function declaration) QUESTION
+    // // var blocks = document.querySelectorAll(".block");
+    // blocks.forEach (function(block){executable code} QUESTION
     $(".block").each(function() {
         // var startTime = $(this).dataset.start;
         // I cannot use this notation for dataset because it is not a jQuery property, I need to use the
@@ -31,6 +26,7 @@ function updateTimeBlocks() {
         var endTime = $(this).data("end");
         // simple logic to see if currentTime is between start and end
         if (currentTime >= startTime && currentTime < endTime) { 
+        // the javascript equivalent is: this.setAttribute('class', this.getAttribute('class') + ' present');
             $(this).addClass("present"); 
         } else if (currentTime < startTime) { 
             $(this).addClass("future"); 
@@ -46,26 +42,42 @@ setInterval(updateTimeBlocks, 1000);
 updateTimeBlocks();
 
 
-// function updateTimeBlocks() {
-//     var currentTime = moment().format("H"); // format the current time as hours and minutes
-//     $("#block").each(function() {
-//         var startTime = $(this).data("start"); // get the start time of the time block
-//         var endTime = $(this).data("end"); // get the end time of the time block
-//         if (currentTime >= startTime && currentTime < endTime) { // check if current time is within the time block
-//             $(this).addClass("present"); // add the present class
-//         } else if (currentTime < startTime) { // check if current time is before the start time
-//             $(this).addClass("future"); // add the future class
-//         } else {
-//             $(this).addClass("past"); // add the past class
-//         }
-//     });
-// }
-
+console.log(block.dataset.start)
 console.log(moment().format("H") < block.dataset.start);
 
-console.log(block.dataset.start)
-
 // SHORTCUT: cmd + shift + H for find and replace all occurences of x
+
+// I now need to save the text content of what is in each text area to local storage.
+// This will happen with an eventListener that runs when the save button is clicked
+
+// jQuery equivalent: $('.saveBtn').click(function() {
+
+var saveBtn = document.querySelector(".saveBtn");
+saveBtn.addEventListener("click", function(event) {
+    var textArea = $(this).parent().find('.block');
+    var textAreaContent = textArea.val();
+    var textAreaId = textArea.attr('id');
+    localStorage.setItem(textAreaId, textAreaContent);
+});
+
+
+
+// Week-6 Day-3 02-Local-Storage:
+
+var email = document.querySelector("#email").value;
+  var password = document.querySelector("#password").value;
+
+
+var theLastPassword = localStorage.getItem("lastPassword");
+  userPasswordSpan.textContent = theLastPassword;
+
+  var theLastEmail = localStorage.getItem("lastEmail");
+  userEmailSpan.textContent = theLastEmail;
+
+  localStorage.setItem("lastEmail", email);
+  localStorage.setItem("lastPassword", password);
+
+  userFirstNameSpan.textContent = lastUser.firstName;
 
 
 
