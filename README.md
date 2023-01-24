@@ -3,6 +3,8 @@ a simple calendar application that allows a user to save events for each hour of
 
 I was also able to put into further practice the idea of using objects to parse information to local storage using event listeners with this logic: calendarObject[textAreaId] = textAreaContent. 
 
+https://mattgaarder.github.io/daily-planner/
+https://github.com/MattGaarder/daily-planner 
 
 ![Alt text](assets/images/Screenshot%202023-01-22%20at%2011.51.48.png)
 ![Alt text](assets/images/Screenshot%202023-01-23%20at%2010.08.31.png)
