@@ -169,7 +169,7 @@ updateTimeBlocks();
 // console.log(saveBtn);
 
 
-
+// JQuery notation for event listenered on "click"
 
 $('.saveBtn').on("click", function(event) {
     console.log("saving");
